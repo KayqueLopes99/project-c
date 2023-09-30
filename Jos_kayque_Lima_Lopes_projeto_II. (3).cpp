@@ -5,35 +5,35 @@
 #include <time.h>
 #include <stdlib.h>
 #define N 200 // tamanho e quantidade 
-#define MAXIMO 1000 //número máximo de e-mails.
-#define MAX_PRODUTOS 200 //número máximo de produtos.
+#define MAXIMO 1000 //nÃºmero mÃ¡ximo de e-mails.
+#define MAX_PRODUTOS 200 //nÃºmero mÃ¡ximo de produtos.
 struct Email
 {
-	char endereco[80];/// número máximo de caracteres para endereço de e-mail.
+	char endereco[80];/// nÃºmero mÃ¡ximo de caracteres para endereÃ§o de e-mail.
 };
-//validação do e-mail
+//validaÃ§Ã£o do e-mail
 int validade(char endereco[], struct Email emails[], int nemails)
 {
-	if (strlen(endereco) <= 79)   //tamanho do endereço.
+	if (strlen(endereco) <= 79)   //tamanho do endereÃ§o.
 	{
 		for (int i = 0; i < nemails; i++)
 		{
 			if (strcmp(endereco, emails[i].endereco) == 0)
 			{
-				return 0; //se o e-mail já  existe no site.
+				return 0; //se o e-mail jÃ¡  existe no site.
 			}
-		}// Verificação das partes essenciais .
+		}// VerificaÃ§Ã£o das partes essenciais .
 		if (strstr(endereco, "@") != NULL && (strstr(endereco, "hotmail") || strstr(endereco, "gmail")) && strstr(endereco, ".com"))
 		{
-			return 1; //e-mail for válido.
+			return 1; //e-mail for vÃ¡lido.
 		}
 	}
 	else
 	{
-		return 0;// caso o tamanho do endereço ser que  80 caracteres.
+		return 0;// caso o tamanho do endereÃ§o ser que  80 caracteres.
 	}
 }
-// definição da estrutura do cliente ou usuário.
+// definiÃ§Ã£o da estrutura do cliente ou usuÃ¡rio.
 struct Cliente
 {
 	int idade;
@@ -41,7 +41,7 @@ struct Cliente
 	float valorgasto;
 	int cadastrado; //registrar cliente.
 };
-// função para exibir o menu.
+// funÃ§Ã£o para exibir o menu.
 void exibirMenu()
 {
 	printf("== Menu ==\n");
@@ -49,7 +49,7 @@ void exibirMenu()
 	printf("2 - Cadastrar-se para o sorteio\n");
 	printf("3 - Editar nome\n");
 	printf("4 - Excluir nome\n");
-	printf("5 - Listar produtos comprados pelo usuário\n");
+	printf("5 - Listar produtos comprados pelo usuÃ¡rio\n");
 	printf("6 - Sorteio online\n");
 	printf("7 - Sair\n");
 }
@@ -58,7 +58,7 @@ void limpartela()
 	system("cls");
 //comando para limpar a tela depois do usuario sair do setor do supermercado.
 }
-// variáveis globais.
+// variÃ¡veis globais.
 int opcao;
 struct Cliente clientes[1000];//armazenar 1000 clientes.
 int qtd = 0;
@@ -76,31 +76,31 @@ struct Produto
 
 void listagem(struct Produto carrinho[], int quantidade)
 {
-	printf("NOMES DOS PRODUTOS E SEUS NÚMEROS CORRESPONDENTES");
-	printf("Você selecionou o SETOR LATICÍNIOS.\n");
+	printf("NOMES DOS PRODUTOS E SEUS NÃšMEROS CORRESPONDENTES");
+	printf("VocÃª selecionou o SETOR LATICÃNIOS.\n");
 	char* produtos[] =
-	{//cada nome tem seu ponteiro e sua posição na lista.
+	{//cada nome tem seu ponteiro e sua posiÃ§Ã£o na lista.
 		"Leite", "Sorvete", "Manteiga", "Ovos", "Creme de leite",
-		"Requeijão", "Iogurte natural", "Abacaxi", "Cenoura", "Goiaba",
+		"RequeijÃ£o", "Iogurte natural", "Abacaxi", "Cenoura", "Goiaba",
 		"Uva", "Alface", "Morango", "Banana", "Sabonete",
-		"Detergentes", "Desinfetantes", "Papel Higiênico", "Escovas", "Vassouras",
+		"Detergentes", "Desinfetantes", "Papel HigiÃªnico", "Escovas", "Vassouras",
 		"Esponjas ", "Bolo", "Donuts ", "Torta",
-		"Pães ", "Brigadeiros ", "Biscoitos ", "Croissants ",
+		"PÃ£es ", "Brigadeiros ", "Biscoitos ", "Croissants ",
 		"Cerveja", "Refrigerante", "Carne", "Peito de Frango",
 		"Massa de pastel", "Salsicha", "Suco de fruta", "Arroz",
-		"Flocos de aveia", "Feijão", "Farinha de trigo", "Cereal matinal",
+		"Flocos de aveia", "FeijÃ£o", "Farinha de trigo", "Cereal matinal",
 		"Massa sem fermento", "Pipoca de milho"
-	};//Vai listar os produtos, para o usuário ver-los.
+	};//Vai listar os produtos, para o usuÃ¡rio ver-los.
 
 	for (int i = 0; i < 42; i++)
 	{
 		printf("|====================== %d. %s\n", i + 1, produtos[i]);
-	}// vai mostrar o preço, a quantidade, o nome que será o número , tudo isso dentro do carinho.
+	}// vai mostrar o preÃ§o, a quantidade, o nome que serÃ¡ o nÃºmero , tudo isso dentro do carinho.
 	printf("Produtos comprados:\n");
 	for (int i = 0; i < quantidade; i++)
 	{
 		printf("Nome: %s\n", carrinho[i].nome);
-		printf("Preço unitário: R$%.2f\n", carrinho[i].preco);
+		printf("PreÃ§o unitÃ¡rio: R$%.2f\n", carrinho[i].preco);
 		printf("Quantidade: %d\n", carrinho[i].quantidade);
 		printf("Subtotal: R$%.2f\n", carrinho[i].preco * carrinho[i].quantidade);
 		printf("------------------------------------------------------------\n");
@@ -117,7 +117,7 @@ void shuffleArray(int array[], int s)
 		array[j] = temp;
 	}
 }
-//sorteio com rand para ser aleatório.
+//sorteio com rand para ser aleatÃ³rio.
 void realizarSorteio()
 {
 	srand(time(NULL));
@@ -138,7 +138,7 @@ void realizarSorteio()
 		"DOURADO",
 		"CINSA",
 		"BEGE"
-	};//cada cor associada a um número.
+	};//cada cor associada a um nÃºmero.
 
 	int numerosPossiveis[15];
 	for (int i = 0; i < 15; i++)
@@ -156,9 +156,9 @@ void realizarSorteio()
 		{
 			matriz[i][j] = numerosPossiveis[count++];
 		}
-	}//o número possivel vai sendo mudado a cada interação.
+	}//o nÃºmero possivel vai sendo mudado a cada interaÃ§Ã£o.
 
-	printf("Matriz 3x5 com números diferentes:\n");
+	printf("Matriz 3x5 com nÃºmeros diferentes:\n");
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 5; j++)
@@ -177,38 +177,38 @@ void realizarSorteio()
 		int linhaSorteada = rand() % 3;
 		int colunaSorteada = rand() % 5;
 		numeroSorteado = matriz[linhaSorteada][colunaSorteada];
-//ESCOLHER NÚMERO DEACORDO COM A COR
-		printf("Tentativa %d: Escolha um número da matriz (1 a 15): ", tentativas + 1);
+//ESCOLHER NÃšMERO DEACORDO COM A COR
+		printf("Tentativa %d: Escolha um nÃºmero da matriz (1 a 15): ", tentativas + 1);
 		scanf("%d", &numeroEscolhido);
 
 		if (numeroEscolhido >= 1 && numeroEscolhido <= 15)
 		{
 			if (numeroEscolhido == numeroSorteado)
 			{
-				printf("\nNúmero sorteado: %d - %s\n", numeroSorteado, nomes[numeroEscolhido - 1]);
-				printf("Parabéns, você é o vencedor!\n");
-				printf("Você ganhou um CELULAR DA CARRO TESLA!!!!!!");
+				printf("\nNÃºmero sorteado: %d - %s\n", numeroSorteado, nomes[numeroEscolhido - 1]);
+				printf("ParabÃ©ns, vocÃª Ã© o vencedor!\n");
+				printf("VocÃª ganhou um CARRO TESLA!!!!!!");
 				break;
 			}
 			else
 			{
-				printf("Número não sorteado, TENTE NOVAMENTE VOCÊ CONSEGUE!!!!.\n");
+				printf("NÃºmero nÃ£o sorteado, TENTE NOVAMENTE VOCÃŠ CONSEGUE!!!!.\n");
 				tentativas++;
 			}
 		}
 		else
 		{
-			printf("Número fora do intervalo (1 a 15). Tente novamente .\n");
+			printf("NÃºmero fora do intervalo (1 a 15). Tente novamente .\n");
 		}
 	}
 
 	if (tentativas == 2)  //duas tentativas apenas.
 	{
-		printf("Suas tentativas acabaram. O número sorteado era %d - %s.\n", numeroSorteado, nomes[numeroSorteado - 1]);
+		printf("Suas tentativas acabaram. O nÃºmero sorteado era %d - %s.\n", numeroSorteado, nomes[numeroSorteado - 1]);
 	}
 }
 
-// Função para adicionar os produto ao carrinho
+// FunÃ§Ã£o para adicionar os produto ao carrinho
 
 int adicionarProduto(struct Produto carrinho[], int quantidadee, char nome[], float preco, int quantidade_produto)
 {
@@ -218,15 +218,15 @@ int adicionarProduto(struct Produto carrinho[], int quantidadee, char nome[], fl
 		carrinho[quantidadee].preco = preco ;
 		carrinho[quantidadee].quantidade = quantidade_produto; // Definir a quantidade.
 		printf("Produto \"%s\" adicionado ao carrinho.\n", nome);
-		quantidadee++; // adição da  quantidade de produtos no carrinho.
+		quantidadee++; // adiÃ§Ã£o da  quantidade de produtos no carrinho.
 	}
 	else
 	{
-		printf("O carrinho está cheio. Não é possível adicionar mais produtos.\n");
+		printf("O carrinho estÃ¡ cheio. NÃ£o Ã© possÃ­vel adicionar mais produtos.\n");
 	}
 	return quantidadee; // Retornar a nova quantidade de produtos no carrinho.
-}// preços dos produtos.
-// Declaração da função para o pagamento no caixa.
+}// preÃ§os dos produtos.
+// DeclaraÃ§Ã£o da funÃ§Ã£o para o pagamento no caixa.
 void realizarPagamento(struct Produto carrinho[], int quantidade)
 {
 	// Calcular o total das compras para o caixa.
@@ -234,7 +234,7 @@ void realizarPagamento(struct Produto carrinho[], int quantidade)
 	float total = 0;
 	for (int i = 0; i < quantidade; i++)
 	{
-		total += carrinho[i].preco * carrinho[i].quantidade; // Multiplica o preço pela quantidade
+		total += carrinho[i].preco * carrinho[i].quantidade; // Multiplica o preÃ§o pela quantidade
 	}
 
 
@@ -247,10 +247,10 @@ void realizarPagamento(struct Produto carrinho[], int quantidade)
 	scanf("%f", &valorPago);
 
 
-	// Verifica se o valor pago é suficiente e repete ate ficar correto
+	// Verifica se o valor pago Ã© suficiente e repete ate ficar correto
 	while (valorPago < total)
 	{
-		printf("Valor insuficiente. O pagamento não pode ser concluído.\n");
+		printf("Valor insuficiente. O pagamento nÃ£o pode ser concluÃ­do.\n");
 		printf("insira o valor deacordo com o Total da compra: R$");
 		scanf("%f", &valorPago);
 
@@ -262,28 +262,28 @@ void realizarPagamento(struct Produto carrinho[], int quantidade)
 	printf("Pagamento efetuado com sucesso!\n");
 	printf("Troco: R$%.2f\n", troco);
 
-	// Limpa o carrinho depois o pagamento ser concluído
+	// Limpa o carrinho depois o pagamento ser concluÃ­do
 	quantidade = 0;
 }
 
 
 float precos[] =
 {
-	3.00, 15.00, 7.00, 12.00, 5.50, 11.00, 6.00,      // Preços LATICÍNIOS.
-	2.00, 3.00, 8.00, 4.00, 5.00, 2.00, 2.00,        // Preços FRUTAS, VERDURAS E LEGUMES.
-	2.00, 3.00, 7.00, 4.00, 2.00, 18.00, 2.00,      // preços  HEGIENE E LIMPEZA.
-	7.00, 6.00, 13.00, 3.00, 14.00, 6.00, 9.00,    // Preços  PADARIA E CONFEITARIA.
-	11.00, 6.00, 13.00, 8.00, 10.00, 6.00, 5.00,  // Preços  SETOR BEBIDAS E FRIOS.
-	7.00, 4.00, 5.00, 8.00, 16.00, 6.00, 9.00    // Preços SETOR CEREAIS.
+	3.00, 15.00, 7.00, 12.00, 5.50, 11.00, 6.00,      // PreÃ§os LATICÃNIOS.
+	2.00, 3.00, 8.00, 4.00, 5.00, 2.00, 2.00,        // PreÃ§os FRUTAS, VERDURAS E LEGUMES.
+	2.00, 3.00, 7.00, 4.00, 2.00, 18.00, 2.00,      // preÃ§os  HEGIENE E LIMPEZA.
+	7.00, 6.00, 13.00, 3.00, 14.00, 6.00, 9.00,    // PreÃ§os  PADARIA E CONFEITARIA.
+	11.00, 6.00, 13.00, 8.00, 10.00, 6.00, 5.00,  // PreÃ§os  SETOR BEBIDAS E FRIOS.
+	7.00, 4.00, 5.00, 8.00, 16.00, 6.00, 9.00    // PreÃ§os SETOR CEREAIS.
 };
-// Função para calcular o total do carrinho
-//Produto carrinho[]  para representar os preços
+// FunÃ§Ã£o para calcular o total do carrinho
+//Produto carrinho[]  para representar os preÃ§os
 float calcularTotal(struct Produto carrinho[], int quantidade)
 {
 	float total = 0;
 	for (int i = 0; i < quantidade; i++)
 	{
-		total += carrinho[i].preco * carrinho[i].quantidade; // Multiplica o preço pela quantidade
+		total += carrinho[i].preco * carrinho[i].quantidade; // Multiplica o preÃ§o pela quantidade
 	}
 	return total;
 }
@@ -297,24 +297,24 @@ int main()
 	printf("----------------  CADASTRAMENTO  -----------------\n");
 	printf("-------------------------------------------------\n");
 	printf("-------INFORME SEUS DADOS PARA PROSSEGUIR -------\n");
-	printf("Cadastre um nome para o usuário: ");
+	printf("Cadastre um nome para o usuÃ¡rio: ");
 	scanf("%s", login);
 	printf("Cadastre uma senha para o usuario %s: ", login);
 	scanf("%s", senha);
-	printf("\n%s, Você foi cadastrado no sistema!\n\n", login);
+	printf("\n%s, VocÃª foi cadastrado no sistema!\n\n", login);
 	printf("--------------------------------------------------------------\n");
-	printf("------------------------- FAÇA SEU LOGIN ----------------------\n");
-	printf("Informe seu usuário: ");
+	printf("------------------------- FAÃ‡A SEU LOGIN ----------------------\n");
+	printf("Informe seu usuÃ¡rio: ");
 	scanf("%s", usuario);
 	printf("Informe sua senha: ");
 	scanf("%s", pass);
 	printf("-----------------------------------------------------------------\n");
-	printf("Verificando usuário e senha....\n");
-	// comparação entre usuario e login , pass e senha
+	printf("Verificando usuÃ¡rio e senha....\n");
+	// comparaÃ§Ã£o entre usuario e login , pass e senha
 	while (strcmp(usuario, login) != 0 || strcmp(pass, senha) != 0)
 	{
-		printf("Usuario ou senha incorretos, informe as informações novamente\n\n");
-		printf("Informe o usuário: ");
+		printf("Usuario ou senha incorretos, informe as informaÃ§Ãµes novamente\n\n");
+		printf("Informe o usuÃ¡rio: ");
 		scanf("%s", usuario);
 		printf("Informe a senha: ");
 		scanf("%s", pass);
@@ -322,7 +322,7 @@ int main()
 
 	printf("LOGIN FOI CONCLUIDO\n");
 	printf("--------------------PARA FINALIZAR O CADASTRO-----------------------\n");
-	printf("----------INFORME UM ENDEREÇO DE E-MAIL VÁLIDO----------------------\n");
+	printf("----------INFORME UM ENDEREÃ‡O DE E-MAIL VÃLIDO----------------------\n");
 
 	struct Email emails[MAXIMO];
 	int nemails = 0;
@@ -335,10 +335,10 @@ int main()
 	{
 		printf("Informe o seu email ou cadastre um novo EMAIL para %s: ", login);
 		scanf("%s", endereco);
-// se o e-mail tiver já sido cadastrado no sistema.
+// se o e-mail tiver jÃ¡ sido cadastrado no sistema.
 		while (!validade(endereco, emails, nemails))
 		{
-			printf("E-mail inválido ou já cadastrado. Por favor, insira um e-mail válido: ");
+			printf("E-mail invÃ¡lido ou jÃ¡ cadastrado. Por favor, insira um e-mail vÃ¡lido: ");
 			scanf("%s", endereco);
 		}
 
@@ -352,22 +352,22 @@ int main()
 
 	if (nemails == MAXIMO)
 	{
-		printf("Limite máximo de e-mails cadastrados atingido.\n");
+		printf("Limite mÃ¡ximo de e-mails cadastrados atingido.\n");
 	}
 	else
 	{
 		printf("Cadastro de e-mails encerrado.\n");
 	}
-//mensagem de boas-vindas ,apresentei o projeto e também descrevi o objetivo dele.
-	printf("================================== LOGIN FOI CONCLUÍDO ====================================\n");
+//mensagem de boas-vindas ,apresentei o projeto e tambÃ©m descrevi o objetivo dele.
+	printf("================================== LOGIN FOI CONCLUÃDO ====================================\n");
 	printf("-------------------------------------------------------------------------------------------\n");
 	printf("--------------------  BEM-VINDO %s AO MULTI-SUPERMERCADO VIRTUAL  -------------------------\n", login);
 	printf("-------  NOSSO SUPERMERCADO FOI PROJETADO PARA AJUDAR A HUMANIDADE E PRINCIPALMENTE -------\n");
-	printf("---PARA AQUELAS PESSOAS QUE NÃO PODEM SE LOCOMOVER, POR MOTIVOS PESSOAIS OU LOCACIONAIS.---\n");
-	printf("----- VOCÊ VAI ENCONTRAR MUITOS PRODUTOS NESSE SITE, POIS NOSSA EMPRESA TEM PARCERIAS------\n");
-	printf("----- COM OUTRAS INSTITUIÇÕES RELACIONADAS AO TRANSPORTE DE TODOS OS NOSSOS PRODUTOS. -----\n");
-	printf("---- CONFIABILIDADE, PROTEÇÃO E SEGURANÇA, SÃO AS PRINCIPAIS PALAVRAS CHAVE QUE DEFINEM----\n");
-	printf("NOSSO SUPERMERCADO VIRTUAL, ESTAMOS FELIZES EM RECEBÊ-LO(A) AQUI, EXPLORE NOSSOS CORREDORES\n");
+	printf("---PARA AQUELAS PESSOAS QUE NÃƒO PODEM SE LOCOMOVER, POR MOTIVOS PESSOAIS OU LOCACIONAIS.---\n");
+	printf("----- VOCÃŠ VAI ENCONTRAR MUITOS PRODUTOS NESSE SITE, POIS NOSSA EMPRESA TEM PARCERIAS------\n");
+	printf("----- COM OUTRAS INSTITUIÃ‡Ã•ES RELACIONADAS AO TRANSPORTE DE TODOS OS NOSSOS PRODUTOS. -----\n");
+	printf("---- CONFIABILIDADE, PROTEÃ‡ÃƒO E SEGURANÃ‡A, SÃƒO AS PRINCIPAIS PALAVRAS CHAVE QUE DEFINEM----\n");
+	printf("NOSSO SUPERMERCADO VIRTUAL, ESTAMOS FELIZES EM RECEBÃŠ-LO(A) AQUI, EXPLORE NOSSOS CORREDORES\n");
 	printf("--------------- REPLETOS DE PRODUTOS DE ALTA QUALIDADE, TENHA UM BOM DIA.------------------\n");
 
 	struct Produto carrinho[MAX_PRODUTOS];  // Inicialize o carrinho
@@ -385,24 +385,24 @@ int main()
 			{
 
 
-				// Submenu para o Opção 1
+				// Submenu para o OpÃ§Ã£o 1
 				printf("SETORES DO SUPERMERCADO\n");
 				printf("SELECIONE A LETRA CORRESPONDENTE AO SETOR:\n");
-				printf("a - SETOR LATICÍNIOS\n");
+				printf("a - SETOR LATICÃNIOS\n");
 				printf("b - SETOR FRUTAS, VERDURAS E LEGUMES\n");
 				printf("c - SETOR HEGIENE E LIMPEZA\n");
 				printf("d - SETOR PADARIA E CONFEITARIA\n");
 				printf("e - SETOR BEBIDAS E FRIOS\n");
 				printf("f - SETOR CEREAIS\n");
-				printf("g - CAIXA ELETRÔNICO PARA FINALIZAR A COMPRA\n");
+				printf("g - CAIXA ELETRÃ”NICO PARA FINALIZAR A COMPRA\n");
 				printf("r. Voltar ao menu principal\n");
-				printf("Escolha uma subopção: ");
+				printf("Escolha uma subopÃ§Ã£o: ");
 				scanf(" %c", &opcao_submenu);
 
 				switch (opcao_submenu)
 				{
-				case 'a'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR LATICÍNIOS.\n");
+				case 'a'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR LATICÃNIOS.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
@@ -411,12 +411,12 @@ int main()
 					printf("|====================== 3. Manteiga        - R$ 7.00/emb.   ========================|\n");
 					printf("|====================== 4. Ovos            - R$ 12.00/caixa ========================|\n");
 					printf("|====================== 5. Creme de leite  - R$ 5.50/garr.  ========================|\n");
-					printf("|====================== 6. Requeijão       - R$ 11.00/kg    ========================|\n");
+					printf("|====================== 6. RequeijÃ£o       - R$ 11.00/kg    ========================|\n");
 					printf("|====================== 7. Iogurte natural - R$ 6.00/caixa  ========================|\n");
 					printf("|__________________________________________________________________________________|\n");
 					break;
-				case 'b'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR FRUTAS, VERDURAS E LEGUMES.\n");
+				case 'b'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR FRUTAS, VERDURAS E LEGUMES.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
@@ -429,36 +429,36 @@ int main()
 					printf("|======================== 14. Banana     - R$ 2.00/caixa  ==========================\n");
 					printf("|__________________________________________________________________________________|\n");
 					break;
-				case 'c'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR HIGIENE E LIMPEZA.\n");
+				case 'c'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR HIGIENE E LIMPEZA.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
 					printf("|======================== 15. Sabonete        - R$ 2.00/caixa  =======================\n");
 					printf("|======================== 16. Detergentes     - R$ 3.00/emb.   =======================\n");
 					printf("|======================== 17. Desinfetantes   - R$ 7.00/emb.   =======================\n");
-					printf("|======================== 18. Papel Higiênico - R$ 4.00/emb.   =======================\n");
+					printf("|======================== 18. Papel HigiÃªnico - R$ 4.00/emb.   =======================\n");
 					printf("|======================== 19. Escovas         - R$ 2.00/emb.   =======================\n");
 					printf("|======================== 20. Vassouras       - R$ 18.00/emb.   =======================\n");
 					printf("|======================== 21. Esponjas        - R$ 2.00/caixa  =======================\n");
 					printf("|__________________________________________________________________________________|\n");
 					break;
-				case 'd'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR PADARIA E CONFEITARIA.\n");
+				case 'd'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR PADARIA E CONFEITARIA.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
 					printf("|======================== 22. Bolo        - R$ 7.00/caixa  ==========================\n");
 					printf("|======================== 23. Donuts      - R$ 6.00/emb.   ==========================\n");
 					printf("|======================== 24. Torta       - R$ 13.00/emb.  ==========================\n");
-					printf("|======================== 25. Pães        - R$ 3.00/kg.    ==========================\n");
+					printf("|======================== 25. PÃ£es        - R$ 3.00/kg.    ==========================\n");
 					printf("|======================== 26. Brigadeiros - R$ 14.00/caixa ==========================\n");
 					printf("|======================== 27. Biscoitos   - R$ 6.00/caixa  ==========================\n");
 					printf("|======================== 28. Croissants  - R$ 9.00/caixa  ==========================\n");
 					printf("|__________________________________________________________________________________|\n");
 					break;
-				case 'e'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR BEBIDAS E FRIOS.\n");
+				case 'e'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR BEBIDAS E FRIOS.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
@@ -471,14 +471,14 @@ int main()
 					printf("|====================== 35. Suco de fruta    - R$ 5.00/kg.     =======================\n");
 					printf("|__________________________________________________________________________________|\n");
 					break;
-				case 'f'://TABELA DE PRODUTOS E PREÇOS.
-					printf("Você selecionou o SETOR CEREAIS.\n");
+				case 'f'://TABELA DE PRODUTOS E PREÃ‡OS.
+					printf("VocÃª selecionou o SETOR CEREAIS.\n");
 					printf("====================================================================================\n");
 					printf("|----------------------------- PRODUTOS NA PRATELEIRA ------------------------------|\n");
 					printf("====================================================================================\n");
 					printf("|====================== 36. Arroz               - R$ 7.00/emb.   ==========================\n");
 					printf("|====================== 37. Flocos de aveia     - R$ 4.00/emb.   =========================\n");
-					printf("|====================== 38. Feijão              - R$ 5.00/emb.   ==========================\n");
+					printf("|====================== 38. FeijÃ£o              - R$ 5.00/emb.   ==========================\n");
 					printf("|====================== 39. Farinha de trigo    - R$ 8.00/kg.    ==========================\n");
 					printf("|====================== 40. Cereal matinal      - R$ 16.00/emb.  ==========================\n");
 					printf("|====================== 41. Massa sem fermento  - R$ 6.00/caixa  ==========================\n");
@@ -493,7 +493,7 @@ int main()
 					limpartela();
 					break;
 				default:
-					printf("Opção inválida.\n");
+					printf("OpÃ§Ã£o invÃ¡lida.\n");
 					break;
 				}
 
@@ -502,35 +502,35 @@ int main()
 					char nome_produto[100];
 					float preco_produto = 0.0;
 					int quantidade_produto;
-					//Permite escolher os produtos e solicita ao usuário que insira o número
-					//do produto ou 'r' para sair do setor e também a quantidade desejada.
+					//Permite escolher os produtos e solicita ao usuÃ¡rio que insira o nÃºmero
+					//do produto ou 'r' para sair do setor e tambÃ©m a quantidade desejada.
 
 
-					printf("Escolha um produto pelo número ou digite 'r' para sair deste setor: ");
+					printf("Escolha um produto pelo nÃºmero ou digite 'r' para sair deste setor: ");
 					scanf(" %s", nome_produto);
 
-// Solicita ao usuário para escolher produtos pelo número.
+// Solicita ao usuÃ¡rio para escolher produtos pelo nÃºmero.
 					if (nome_produto[0] == 'r' && nome_produto[1] == '\0')
 					{
 						break; // Voltar ao menu principal
 					}
-// / Solicita ao usuário para escolher produtos e quantidade
+// / Solicita ao usuÃ¡rio para escolher produtos e quantidade
 					// ...
 					printf("Informe a quantidade desejada: \n");
 					printf("OU SE DESEJA RETIRAR O PRODUTO AGORA DO SEU CARINHO DIGITE 0 AQUI:");
 					scanf("%d", &quantidade_produto);
 
 
-// Verifica se o usuário quer voltar ao menu principal
+// Verifica se o usuÃ¡rio quer voltar ao menu principal
 					if (nome_produto[0] == 'r' && nome_produto[1] == '\0')
 					{
 						break; // Voltar ao menu principal
 					}
 //Converte a string nome_produto em um valor inteiro usando atoi, para melhor funcionamento 
 					int produto_index = atoi(nome_produto) - 1; 
-					// a subtração ajusta o indice , assim a lista começa um 1.
-//Asssim , o atoi converte a string  em valores inteiros que representa o índice do produto no vetor de preços, de acordo com o produto da lista , tipo leite = 1 = 3,00.
-// O (index) é usado  acessar o vetor precos e obter o preço correspondente ao produto escolhido pelo usuário.
+					// a subtraÃ§Ã£o ajusta o indice , assim a lista comeÃ§a um 1.
+//Asssim , o atoi converte a string  em valores inteiros que representa o Ã­ndice do produto no vetor de preÃ§os, de acordo com o produto da lista , tipo leite = 1 = 3,00.
+// O (index) Ã© usado  acessar o vetor precos e obter o preÃ§o correspondente ao produto escolhido pelo usuÃ¡rio.
 					if (produto_index >= 0 && produto_index < N)
 					{
 						preco_produto = precos[produto_index];
@@ -539,23 +539,23 @@ int main()
 					}
 					else
 					{
-						printf("Produto não encontrado.\n");
+						printf("Produto nÃ£o encontrado.\n");
 					}
-// Verifica se o nome do produto é válido .
+// Verifica se o nome do produto Ã© vÃ¡lido .
 
 				}
 
 				// Calcular o total do carrinho.
 				float total = calcularTotal(carrinho, quantidade);
 				printf("Total do carrinho: R$%.2f\n", total);
-//formatação em duas casas decimais .
+//formataÃ§Ã£o em duas casas decimais .
 			}
 			while (opcao_submenu != 'r');
 			break;
 
 		case 2:
 			//cadastramento para sorteio idade e nome.
-			printf("Opção 2 selecionada Cadastro.\n");
+			printf("OpÃ§Ã£o 2 selecionada Cadastro.\n");
 			printf("Informe primeiro seu nome para o sistema te cadastrar no sorteio\n");
 			scanf("%s", clientes[qtd].pessoa);
 
@@ -566,12 +566,12 @@ int main()
 			// Aumente a quantidade de clientes cadastrados.
 			qtdClientes++;
 			// finalizar cadastro.
-			printf("Você está cadastrado no sorteio!!!!\n");
-			printf("Selecione o númemo correspondente ao menu sorteio e Boa sorte !!!!!!\n");
+			printf("VocÃª estÃ¡ cadastrado no sorteio!!!!\n");
+			printf("Selecione o nÃºmemo correspondente ao menu sorteio e Boa sorte !!!!!!\n");
 			break;
 
 		case 3:
-			// submenu para edição de nome ou idade.
+			// submenu para ediÃ§Ã£o de nome ou idade.
 			printf("Escolha o que deseja editar:\n");
 			printf("1 - Editar nome\n");
 			printf("2 - Editar idade\n");
@@ -590,13 +590,13 @@ int main()
 				printf("Idade atualizada com sucesso!\n");
 				break;
 			default:
-				printf("Opção inválida.\n");
+				printf("OpÃ§Ã£o invÃ¡lida.\n");
 			}
 			break;
 
 
 		case 4:
-			printf("Opção 4 selecionada Excluir.\n");
+			printf("OpÃ§Ã£o 4 selecionada Excluir.\n");
 			if (qtdClientes > 0)
 			{
 				printf("Informe o nome do cliente que deseja excluir: ");
@@ -618,51 +618,51 @@ int main()
 				{
 					if (clientes[clienteEncontrado].cadastrado == 1)
 					{
-						// Remova o cliente, movendo todos os clientes subsequentes para trás
+						// Remova o cliente, movendo todos os clientes subsequentes para trÃ¡s
 						for (int i = clienteEncontrado; i < qtdClientes - 1; i++)
 						{
 							clientes[i] = clientes[i + 1];
 						}
 						// Atualize a quantidade de clientes
 						qtdClientes--;
-						printf("Cliente %s excluído com sucesso.\n", nomeexcluir);
+						printf("Cliente %s excluÃ­do com sucesso.\n", nomeexcluir);
 					}
 					else
 					{
-						printf("Cliente não estava cadastrado para o sorteio,então ele não pode ser excluído.\n");
+						printf("Cliente nÃ£o estava cadastrado para o sorteio,entÃ£o ele nÃ£o pode ser excluÃ­do.\n");
 					}
 				}
 				else
 				{
-					printf("Cliente não encontrado.\n");
+					printf("Cliente nÃ£o encontrado.\n");
 				}
 			}
 			else
 			{
-				printf("Não tem nenhum clientes cadastrados.\n");
+				printf("NÃ£o tem nenhum clientes cadastrados.\n");
 			}
 			break;
 
 
 		case 5:
 			//listagem dos produtos comprados
-			printf("Opção 5 selecionada Listar produtos comprados.\n");
+			printf("OpÃ§Ã£o 5 selecionada Listar produtos comprados.\n");
 			listagem(carrinho, quantidade);
 
 			break;
 
 
 		case 6:
-			//chamar a função do sorteio.
-			printf("Opção 6 selecionada (Sorteio).\n");
-			printf("OLÁ %s SEJA BEM VINDO AO NOSSO SORTEIO DIÁRIO!!!\n" , clientes[qtd].pessoa);
+			//chamar a funÃ§Ã£o do sorteio.
+			printf("OpÃ§Ã£o 6 selecionada (Sorteio).\n");
+			printf("OLÃ %s SEJA BEM VINDO AO NOSSO SORTEIO DIÃRIO!!!\n" , clientes[qtd].pessoa);
 			realizarSorteio();
 			break;
 		case 7:
-			printf("Opção 7 selecionada (Sair).\n");
+			printf("OpÃ§Ã£o 7 selecionada (Sair).\n");
 			break;
 		default:
-			printf("Opção inválida. Tente novamente.\n");
+			printf("OpÃ§Ã£o invÃ¡lida. Tente novamente.\n");
 		}
 
 	}
