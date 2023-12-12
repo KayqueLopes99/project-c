@@ -63,7 +63,7 @@ int opcao;
 struct Cliente clientes[1000];//armazenar 1000 clientes.
 int qtd = 0;
 int escolha;
-int opcao_submenu;
+char opcao_submenu;
 int qtdClientes = 0;
 // estrutura do produto.
 struct Produto
@@ -187,7 +187,7 @@ void realizarSorteio()
 			{
 				printf("\nNúmero sorteado: %d - %s\n", numeroSorteado, nomes[numeroEscolhido - 1]);
 				printf("Parabéns, você é o vencedor!\n");
-				printf("Você ganhou um CARRO TESLA!!!!!!");
+				printf("Você ganhou um CELULAR DA CARRO TESLA!!!!!!");
 				break;
 			}
 			else
